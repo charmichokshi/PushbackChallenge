@@ -1,0 +1,65 @@
+\pdfoutput=1
+\documentclass[11pt]{article}
+
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{acl}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[switch]{lineno} 
+\usepackage{amsmath}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\title{Pushback to the Future: Predict Pushback Time at US Airports}
+
+\author{Charmi Chokshi \\
+  Student (261130926) \\
+  School of Computer Science, \\
+  McGill University \\
+   \texttt{charmi.chokshi@mail} \\
+   \texttt{.mcgill.ca} \\ \And
+   Student 2 \\ \And
+   Student 3    
+  }
+
+\begin{document}
+\linenumbers
+
+\maketitle
+\begin{abstract}
+
+\end{abstract}
+
+Pushback time refers to the duration of time between when an aircraft is pushed back from the gate or parking position and when it starts to move forward for takeoff. During pushback, the aircraft is disconnected from ground power, air conditioning, and other services provided by the airport, and is instead powered by its own engines. Thus, Pushback time is a critical factor in airline operations, as it affects the overall efficiency of airport operations, and delays can lead to significant financial losses for airlines. Effective decision-making needs to consider but they are highly uncertain depending on various factors such as Weather, Airport configuration, Number of passengers and cargo, Airline procedures and policies, etc. As part of the course project on ML Applied To Climate Change, we have participated in an ongoing competition \cite{drivendata} hosted by the National Aeronautics and Space Administration (NASA) and Federal Aviation Administration (FAA) to work on this problem. To solve this real-time estimation task and achieve low Mean Absolute Error we plan to implement Regression Analysis, Random Forest (RF), Artificial Neural Networks, Support Vector Regression, etc.
+
+\section{Introduction}
+
+Greenhouse gas emissions are a major contributor to climate change, and aerospace industry operations are no exception. Although pushback time, the time between a plane arriving at its gate and departing again, is not typically viewed as a significant source of emissions, it is still a relevant factor in the overall carbon footprint of the airline industry. During the pushback process, aircraft engines are typically running, which can emit carbon dioxide (CO2), nitrogen oxides (NOx), and other greenhouse gases into the atmosphere. These emissions can contribute to climate change, which has a range of negative effects, including rising global temperatures, sea level rise, more frequent heat waves, and changes in precipitation patterns. \\
+
+Reducing greenhouse gas emissions from the aviation industry is an ongoing challenge, but efforts are underway to address the issue. For example, the United Nations' International Civil Aviation Organization has set a goal of reaching net-zero carbon emissions by 2050 \cite{icao}. Moreover, to mitigate the impact of greenhouse gas emissions from pushback, airlines can take several steps. One potential solution is to implement pushback control at airports. This involves regulating the timing of the pushback process, so that planes do not remain idling on the tarmac for prolonged periods before takeoff. This can be achieved through better operational planning, communication, and coordination between airlines and airports. Airlines can also use more environmentally friendly fuels, such as biofuels or synthetic fuels, which produce fewer emissions compared to traditional jet fuel. \\
+
+Predicting pushback time for an aircraft can depend on various factors, including Aircraft size and weight, Number of passengers and cargo, Air traffic control (ATC), Ground crew availability, Weather conditions, Airline procedures and policies, Airport infrastructure and layout, etc. If we can incorporate these features to build an ML or DL-based model that can learn the patterns from historical data and provide accurate delay predictions then it can help reduce the amount of greenhouse gases emitted, slow the rate of climate change, and lessen its negative effects on the environment and society as a whole.
+
+
+\section{Related Work}
+
+The prediction of aircraft pushback time is an important area of research. Several studies have been conducted in this area using machine learning and deep learning techniques. \cite{lee2019prediction} proposes six different machine learning algorithms for the pushback time prediction at Charlotte Douglas International Airport (CLT) in the United States. The authors collected data from various sources, including flight schedules, flight tracking systems, and ground handling providers, to build a dataset of historical pushback and ramp taxi times. The developed algorithms
+are Linear Regression (LR), Support Vector Regression (SVR), Lasso linear regression (Lasso), k-Nearest Neighbors (kNN), Random Forest (RF), and Neural Networks (NN). With Mean Absolute Error of 2.00, RF performed the best.
+
+\section{Dataset and Evaluation}
+
+\section{Proposed Methodology}
+
+
+\bibliography{anthology,custom}
+\bibliographystyle{acl_natbib}
+
+
+\end{document}
