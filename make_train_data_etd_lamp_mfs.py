@@ -112,16 +112,19 @@ for airport in airports:
     lamp_dataframe = pd.concat(lamp_series, ignore_index=True)
 
     final_dataframe = etd_dataframe.join(
-        lamp_dataframe.set_index("timestamp"), on="timestamp",
+        lamp_dataframe.set_index("timestamp"),
+        on="timestamp",
     )
 
     mfs = all_features["mfs"]
     final_dataframe = final_dataframe.join(
-        mfs.set_index(["timestamp", "gufi"]), on=["timestamp", "gufi"],
+        mfs.set_index("gufi"),
+        on="gufi",
     )
 
     final_dataframe = final_dataframe.join(
-        train_labels.set_index("gufi"), on="gufi",
+        train_labels.set_index(["timestamp", "gufi"]),
+        on=["timestamp", "gufi"],
     )
     final_dataframe = final_dataframe.loc[
         ~final_dataframe.minutes_until_pushback.isnull()
