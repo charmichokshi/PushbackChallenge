@@ -75,7 +75,7 @@ for airport in airports:
     predictions = process_map(
         estimate_pushback,
         pd.to_datetime(airport_submission_format.timestamp.unique()),
-        chunksize=20,
+        chunksize=50,
     )
 
     # concatenate individual prediction times to a single dataframe

@@ -4,6 +4,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.linear_model import SGDRegressor
 
 from tqdm import tqdm
 from tqdm.contrib.concurrent import process_map
@@ -99,13 +100,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 # # set min_impurity_split to 1 to avoid warning
 # Rfc.set_params(min_impurity_split=1)
 
-Rfc = RandomForestRegressor()
+xg_boost = SGDRegressor()
 
 print("Training model...")
-fitResultR = Rfc.fit(X_train, y_train)
+fitResultR = xg_boost.fit(X_train, y_train)
 predictedValues = fitResultR.predict(X_test)
 mae = mean_absolute_error(y_test, predictedValues)
 print("MAE:", mae)
 
-filename = 'finalized_model_default_settings.sav'
-pickle.dump(Rfc, open(filename, 'wb'))
+filename = 'finalized_model_xgboost_default_settings.sav'
+pickle.dump(xg_boost, open(filename, 'wb'))
