@@ -17,6 +17,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import pickle
 
+import xgboost as xgb
+
 
 airports = [
     "KATL",
@@ -100,7 +102,16 @@ X_train, X_test, y_train, y_test = train_test_split(
 # # set min_impurity_split to 1 to avoid warning
 # Rfc.set_params(min_impurity_split=1)
 
-xg_boost = SGDRegressor()
+xg_boost = xgb.XGBRegressor(
+    objective="reg:squarederror",
+    n_estimators=1000,
+    max_depth=7,
+    eta=0.1,
+    subsample=0.7,
+    colsample_bytree=0.8,
+    random_state=42,
+)
+
 
 print("Training model...")
 fitResultR = xg_boost.fit(X_train, y_train)
@@ -108,5 +119,5 @@ predictedValues = fitResultR.predict(X_test)
 mae = mean_absolute_error(y_test, predictedValues)
 print("MAE:", mae)
 
-filename = 'finalized_model_xgboost_default_settings.sav'
-pickle.dump(xg_boost, open(filename, 'wb'))
+filename = "finalized_model_xgboost_default_settings.sav"
+pickle.dump(xg_boost, open(filename, "wb"))
