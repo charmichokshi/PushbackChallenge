@@ -99,7 +99,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # # set min_impurity_split to 1 to avoid warning
 # Rfc.set_params(min_impurity_split=1)
 
-Rfc = RandomForestRegressor()
+Rfc = RandomForestRegressor(n_jobs=64)
 
 print("Training model...")
 fitResultR = Rfc.fit(X_train, y_train)

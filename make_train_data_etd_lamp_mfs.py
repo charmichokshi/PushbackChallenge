@@ -131,6 +131,12 @@ for airport in airports:
         final_dataframe = final_dataframe.loc[
             ~final_dataframe.minutes_until_pushback.isnull()
         ]
+        final_dataframe['etd_diff'] = (final_dataframe.departure_runway_estimated_time - final_dataframe.timestamp).dt.total_seconds() / 60
+
+        print("sorting")
+        to_sort = list(zip(df.gufi, df.timestamp))
+        final_dataframe = pd.DataFrame(sorted(final_dataframe.values.tolist(), key=lambda x: to_sort.index((x[2], x[0]))), columns=final_dataframe.columns)
+        print("done sorting")
 
         final_dataframe["hour"] = final_dataframe["timestamp"].dt.hour
         final_dataframe["minute"] = final_dataframe["timestamp"].dt.minute
